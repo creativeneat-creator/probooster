@@ -8,7 +8,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Mail, ArrowLeft, Package, Shield, Truck, CheckCircle } from "lucide-react"
-import { use, useEffect, useMemo, useState, type Usable } from "react"
+import { useEffect, useMemo, useState } from "react"
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -21,7 +21,7 @@ const FALLBACK_IMAGE = "/placeholder.svg?height=600&width=600"
 export default function ProductDetailPage({
   params,
 }: {
-  params: Usable<{ category: string; id: string }>
+  params: { category: string; id: string }
 }) {
   const [isDialogOpen, setIsDialogOpen] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
@@ -33,7 +33,7 @@ export default function ProductDetailPage({
     message: "",
   })
 
-  const { category, id } = use(params)
+  const { category, id } = params
 
   const categoryData = getCategoryById(category)
   const product = categoryData ? getProductById(category, id) : undefined
