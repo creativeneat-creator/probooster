@@ -53,7 +53,7 @@ export async function POST(request: Request) {
 
     const sender = process.env.SUPABASE_MAIL_SENDER ?? recipient
 
-    const { error: mailError } = await supabase.functions.invoke("send-email", {
+    const { error: mailError } = await supabase.functions.invoke("resend-email", {
       body: {
         from: sender,
         to: recipient,
@@ -98,3 +98,4 @@ function extractErrorMessage(error: unknown) {
   const supabaseError = error as PostgrestError & { message?: string }
   return supabaseError?.message ?? "Erreur Supabase inconnue"
 }
+
