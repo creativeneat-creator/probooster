@@ -101,9 +101,10 @@ export default function MentionsLegalesPage() {
         </div>
 
         <div className="mt-12 rounded-2xl border border-dashed border-primary/40 bg-primary/5 p-6 text-sm text-muted-foreground">
-          Dernière mise à jour : {year}
+          Dernière mise à jour : 11/09/2024
         </div>
       </div>
     </div>
   )
 }
+
